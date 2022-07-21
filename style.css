@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: azure;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 300;
+}
+
+.card{
+  height: 200px;
+  width: 200px;
+  border: 2px solid black;
+  margin: 6px;
+  padding: 10px;
+}
