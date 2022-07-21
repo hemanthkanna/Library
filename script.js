@@ -16,29 +16,30 @@ function addBookToLibrary(title,author,pages,status) {
   displayTheBooks();
 }
 
-// Display Form
-const addBook = document.getElementById("add-book-button");
-const addBookBox = document.getElementById("add-book");
+const addBookButton = document.getElementById("add-book-button");
+const addBookBox = document.getElementById("add-book-box");
 const addBookForm = document.getElementById("add-book-form");
-const submit = document.getElementById("submit");
-const reset = document.getElementById("reset");
+const submitButton = document.getElementById("submit");
+const resetButton = document.getElementById("reset");
 
-addBook.addEventListener("click",() => {
+// Display Form
+addBookButton.addEventListener("click",() => {
   addBookBox.style.display = "block";
 });
 
-submit.addEventListener("click",() => {
+// Submit Form
+submitButton.addEventListener("click",() => {
   getFormdata();
   addBookForm.reset();
   addBookBox.style.display = "none";
 });
 
-reset.addEventListener("click",() => {
+// Reset Form
+resetButton.addEventListener("click",() => {
   addBookForm.reset();
 })
 
-
-// Get the Input data
+// Function to get the Input data
 function getFormdata() {
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
@@ -61,9 +62,8 @@ const theHobbit = new Books("The Hobbits","J.R.R Tolkien",
 console.log(theHobbit.info());
 */
 
+// Function to display Book details as a Card
 function displayTheBooks() {
-
-
   // remove all cards before adding new card to display
   const display = document.querySelector("section");
   const removeDiv = document.querySelectorAll(".card");
@@ -73,22 +73,39 @@ function displayTheBooks() {
   }
   
   // Create cards and Display them
+  let index = 0;
   myLibrary.forEach(myLibrarys => {
     const card = document.createElement("div");
     card.classList.add("card");
     display.appendChild(card);
+
+        //create Remove button
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "remove";
+        removeButton.classList.add("remove_btn");
+
+        //add dataset to remove Button
+        removeButton.dataset.linkedArray = index;
+
+        removeButton.addEventListener("click",removeBookFromLibrary);
+
+        // Function to Remove Book from Library
+        function removeBookFromLibrary() {
+          let bookToRemove = removeButton.dataset.linkedArray;
+          myLibrary.splice(parseInt(bookToRemove), 1);
+          card.remove(); 
+          displayTheBooks();
+        }
     
+        // Display card with Book Details
     for (const key in myLibrarys) {
         const para = document.createElement("p");
+        para.style.padding = "10px";
         para.textContent = (`${key} : ${myLibrarys[key]}`);
         card.appendChild(para);
+        card.appendChild(removeButton);
     }
-    // Remove button
-    const remove_btn = document.createElement("button");
-    remove_btn.textContent = "remove";
-    remove_btn.style.padding = "10px";
-    remove_btn.classList.add("remove_btn");
-    card.appendChild(remove_btn);
-  });
+    index++;
 
+  });
 }
