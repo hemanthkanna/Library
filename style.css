@@ -5,17 +5,105 @@
 }
 
 body{
-  background-color: azure;
-  color: rgb(0, 0, 0);
   font-size: 18px;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 300;
+  color: #000;
+  font-weight: 500;
+  background-color: #eee;
 }
 
-.card{
-  height: 200px;
-  width: 200px;
+header{
+  background-color:rgb(139, 139, 139);
+  font-size: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.form-div{
+  padding: 20px;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-book-button{
+  width: 120px;
+  height: 60px;
+  border-radius: 20px;
   border: 2px solid black;
-  margin: 6px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-book-box{
+  width: 300px;
   padding: 10px;
+  background-color: white;
+}
+
+#add-book-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-book-form input{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 20px 0;
+  border: none;
+  background-color: #f1f1f1;
+}
+
+input:focus{
+  border-color:black;
+}
+
+#submit{
+  background-color: rgba(50, 167, 50, 0.87);
+  color: #eee;
+  padding: 16px 20px;
+  border: none;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+#reset{
+  background-color:rgba(216, 52, 52, 0.925);
+  color: #eee;
+  padding: 16px 20px;
+  border: none;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+#submit:hover{
+  opacity: 1;
+}
+ 
+#reset:hover{
+  opacity: 1;
+}
+
+section{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.cards{
+  width: 190px;
+  padding: 1.9rem 1.2rem;
+  text-align:center;
+  background: #2a2b38;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 10px;
 }
