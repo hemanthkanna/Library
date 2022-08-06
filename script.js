@@ -82,15 +82,59 @@ function displayTheBooks() {
   }
 
   // create card to display
+  let index = 0;
   myLibrary.forEach(libraryBooks => {
     const card = document.createElement("div");
     card.classList.add("cards");
     displaySection.appendChild(card);
 
+    // Create Remove Button 
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("removeButtons");
+    removeButton.innerHTML = '<span class="material-icons">delete</span>' + 'REMOVE';
+    removeButton.dataset.linkedArray = index;
+
+    removeButton.addEventListener("click", removeBookFromLibrary);
+
+    // Function to Remove Book from library
+    function removeBookFromLibrary() {
+      let bookToRemove = removeButton.dataset.linkedArray;
+      myLibrary.splice(parseInt(bookToRemove),1);
+      displayTheBooks();
+    }
+
+    // Create Toggle Read Status Button
+    const toggleReadButton = document.createElement("button");
+    toggleReadButton.classList.add("toggleButton");
+    toggleReadButton.innerHTML = '<span class="material-icons">autorenew</span>';
+    toggleReadButton.dataset.linkedArray = index;
+
+    toggleReadButton.addEventListener("click",toggleReadStatus);
+
+    // Function to toggle read
+    function toggleReadStatus() {
+      let bookToToggle = toggleReadButton.dataset.linkedArray;
+      Books.prototype = Object.create(Books.prototype);
+      const toggleBook = new Books();
+
+      if ((myLibrary[parseInt(bookToToggle)].status) == "read") {
+        toggleBook.status = "not read";
+        myLibrary[parseInt(bookToToggle)].status = toggleBook.status;
+      } else if ((myLibrary[parseInt(bookToToggle)].status) == "not read") {
+        toggleBook.status = "read";
+        myLibrary[parseInt(bookToToggle)].status = toggleBook.status;
+      }
+      displayTheBooks();
+    }
+
     for(const key in libraryBooks) {
         const content = document.createElement('p');
         content.textContent = (`${key} : ${libraryBooks[key]}`);
         card.appendChild(content);
-    }
+        card.appendChild(toggleReadButton);
+        card.appendChild(removeButton);
+    }  
+    index++;
   })
+
 }
