@@ -5,8 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a7c4fdd2d4.js" crossorigin="anonymous"></script> 
   <script src="script.js" defer></script>
   <title>Library</title>
 </head>
@@ -20,18 +19,18 @@
     <div class="form-div">
       <div>
         <button id="add-book-button">
-          <span class="material-icons">add</span>          
-          NEW BOOK
+          <i class="fa-solid fa-plus fa-xl"></i>
+          ADD BOOK      
         </button>
       </div>
       <div id="add-book-box" style="display:none;">
         <button id="close-form-button">
-          <span class="material-icons">close</span>
+          <i class="fa-solid fa-xmark fa-lg"></i>
         </button>
         <form id="add-book-form">
           <label for="title">Title</label>
           <input type="text" id="title" name="title" placeholder="Book title" required>
-          <label for="author">author</label>
+          <label for="author">Author</label>
           <input type="text" id="author" name="author" placeholder="Author Name" required>
           <label for="pages">Pages</label>
           <input type="number" id="pages" name="pages" required>
@@ -47,6 +46,19 @@
     <section class="display">
     </section>
   </div>
+
+  <footer class="footer">
+    <p>
+      Copyright ©
+      <script>
+        document.write(new Date().getFullYear())
+      </script>
+    <a href=https://github.com/hemanthkanna target="_blank">
+      hemanthkanna 
+      <i class="fa-brands fa-github fa-lg"></i>
+    </a>
+    </p>
+  </footer>
 
 </body>
 </html>

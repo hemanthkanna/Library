@@ -31,6 +31,7 @@ const readStatus = document.getElementById("read-status");
 function openForm() {
   addBookBox.style.display = "block";
   addBookButton.style.display = "none";
+  
 }
 
 function closeForm(params) {
@@ -50,6 +51,7 @@ submitButton.addEventListener("click",()=> {
   addBookForm.reset();
   closeForm();
 });
+
 
 // Function to get the Input data
 function getFormDetails() {
@@ -91,7 +93,7 @@ function displayTheBooks() {
     // Create Remove Button 
     const removeButton = document.createElement("button");
     removeButton.classList.add("removeButtons");
-    removeButton.innerHTML = '<span class="material-icons">delete</span>' + 'REMOVE';
+    removeButton.innerHTML = '<i class="fa-solid fa-trash"></i>' + 'REMOVE';
     removeButton.dataset.linkedArray = index;
 
     removeButton.addEventListener("click", removeBookFromLibrary);
@@ -106,7 +108,7 @@ function displayTheBooks() {
     // Create Toggle Read Status Button
     const toggleReadButton = document.createElement("button");
     toggleReadButton.classList.add("toggleButton");
-    toggleReadButton.innerHTML = '<span class="material-icons">autorenew</span>';
+    toggleReadButton.innerHTML = '<i class="fa-solid fa-arrows-rotate fa-xl"></i>';
     toggleReadButton.dataset.linkedArray = index;
 
     toggleReadButton.addEventListener("click",toggleReadStatus);
